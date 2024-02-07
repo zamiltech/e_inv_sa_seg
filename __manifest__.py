@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 {
-    "name": "e-Invoice KSA | tax invoice | report | qrcode | ZATCA | vat  | electronic | einvoice | e-invoice sa | accounting | tax  | Zakat, Tax and Customs Authority | invoice ",
-    "version": "1.4",
+    "name": "e-Invoice KSA - semaaljamal ",
+    "version": "1.5",
     "depends": [
         'base', 'web', 'account',
     ],

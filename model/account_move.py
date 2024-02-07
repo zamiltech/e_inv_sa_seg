@@ -40,6 +40,8 @@ class AccountMove(models.Model):
     einv_sa_seg_confirmation_datetime = fields.Datetime(string='Confirmation Date', readonly=True, copy=False)
 
     einv_sa_seg_confirmed = fields.Boolean(compute='_compute_einv_sa_seg_confirmation_datetime', store=True)
+    ### new Delivery Note No
+    einv_delivery_note_no = fields.Char(string="Delivery Note No.", help="", copy=False)
 
     def _compute_einv_sa_seg_confirmation_datetime(self):
         for move in self:

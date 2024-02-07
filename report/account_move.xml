@@ -42,7 +42,12 @@
                         <div class="col-4"><Strong>Salesperson</Strong></div>
                         <div class="col-4 text-center"><span t-field="doc.invoice_user_id"></span></div>
                         <div class="col-4 text-right"><Strong>البائع</Strong></div>
-                    </div>                    
+                    </div> 
+                    <div class="row">
+                        <div class="col-4"><Strong>Delivery Note</Strong></div>
+                        <div class="col-4 text-center"><span t-field="doc.einv_delivery_note_no"></span></div>
+                        <div class="col-4 text-right"><Strong>رقم سند التسليم</Strong></div>
+                    </div>                                                            
                 </div>
                 <div class="col-3" >
 <!--                    <span t-esc="doc.einv_sa_seg_qr_code_str"></span>-->

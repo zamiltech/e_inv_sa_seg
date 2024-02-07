@@ -8,6 +8,7 @@
                 <field name="invoice_date" position="after">
                     <field name="einv_sa_seg_show_delivery_date" invisible="1"/>
                     <field name="einv_sa_seg_delivery_date" attrs="{'invisible': [('einv_sa_seg_show_delivery_date', '=', False)], 'required': [('einv_sa_seg_show_delivery_date', '=', True)]}"/>
+                    <field name="einv_delivery_note_no"/>
                 </field>
             </field>
         </record>
