@@ -4,6 +4,7 @@ import base64
 # from base64 import b64encode
 
 from odoo import models, fields, api, _
+from num2words import num2words
 from odoo.exceptions import UserError, Warning
 
 
@@ -42,6 +43,12 @@ class AccountMove(models.Model):
     einv_sa_seg_confirmed = fields.Boolean(compute='_compute_einv_sa_seg_confirmation_datetime', store=True)
     ### new Delivery Note No
     einv_delivery_note_no = fields.Char(string="Delivery Note No.", help="", copy=False)
+    arabic_text_amount = fields.Char(string="Total In Words", required=False, compute="_compute_amount_to_words" )
+
+    @api.depends('amount_total')
+    def _compute_amount_to_words(self):
+        for move in self:
+            move.arabic_text_amount  = num2words(move.amount_total, to='currency',lang='ar')
 
     def _compute_einv_sa_seg_confirmation_datetime(self):
         for move in self:

@@ -202,6 +202,7 @@
             <table class="table table-sm o_main_table " name="invoice_line_ids_table">
                 <thead class="bg-light text-center">
                     <tr>
+                    <td><div class="mw-100">Barcode</div><div class="mw-100 ">الباركود</div></td>
                         <td class="text-left"><div class="mw-100">Name</div><div class="mw-100 ">
                             الصنف</div></td>
                         <td><div class="mw-100">Price Unit</div><div class="mw-100 "> سعر الوحدة</div></td>
@@ -219,7 +220,10 @@
                 <tbody class="invoice_line_ids_tbody text-center">
                     <!-- foreach-->
                     <tr t-foreach="doc.invoice_line_ids" t-as="line">
-                        <td class="text-left"><span t-field="line.name"/></td>
+                        <td><span t-field="line.product_id.barcode"/></td>
+                        <td class="text-left">                   
+                        <span t-field="line.name"/>
+                        </td>
                         <td><span t-field="line.price_unit"/></td>
                         <td><span t-field="line.quantity"/></td>
                         <td><span t-field="line.einv_amount_discount"/></td>
@@ -275,10 +279,52 @@
                             <div class="col-6 text-right"> الإجمالي المستحق </div>
                             <div class="col-2 text-center"><span t-field="doc.amount_total"></span></div>
                         </div>
+                        <div class="row border border-top-0">
+                            <div class="col-4">Total Amount in Words</div>
+                            <div class="col-6 text-center">
+                            <span t-esc="doc.currency_id.amount_to_text(doc.amount_total)"></span> 
+                            <br></br>
+                            <span t-esc="doc.arabic_text_amount"></span> 
+                            
+                            <!-- <br></br>
+                            <span class="rtl" t-esc="doc.currency_id.with_context(lang='ar_SY').amount_to_text(doc.amount_total)"> </span> -->
+                            </div>
+                        </div>                        
+                        
                     </div>
 
                 </div>
             </div>
+            <div class="oe_structure"/>
+
+        </template>
+
+        <template id="einv_sa_seg.inv_sing_footer">
+        <div style="page-break-inside: avoid;">
+        <div class="col-2"><br></br></div>
+        <div class="row">
+         
+            <div class="col-4">
+                <div class="col-4 text-center">المبيعات</div>
+                <div class="col-4 text-center">Sales</div>
+                <br></br>
+                <hr class="mt-2 mb-3"/>
+            </div>
+            <div class="col-4 text-center">
+                <div class="col-4 text-center">المحاسبة</div>
+                <div class="col-4 text-center">Accountant</div>
+                <br></br>
+                <hr class="mt-2 mb-3"/>
+            </div>
+            <div class="col-4  text-center">
+                <div class="col-4  text-center">المستلم</div>
+                <div class="col-4 text-center">Receiver</div>
+                <br></br>
+                <hr class="mt-2 mb-3"/>
+            </div>
+        </div>
+        <!-- page-break- -->
+        </div>
             <div class="oe_structure"/>
 
         </template>
@@ -300,7 +346,11 @@
                     <t t-call="einv_sa_seg.inv_lines" t-lang="ar"/>
 
                     <!-- Invoice total-->
+
                     <t t-call="einv_sa_seg.inv_total"/>
+
+                    <!-- Invoice sing_footer-->
+                    <t t-call="einv_sa_seg.inv_sing_footer"/>                    
                 </div>
 
             </t>
