@@ -43,6 +43,8 @@ class AccountMove(models.Model):
     einv_sa_seg_confirmed = fields.Boolean(compute='_compute_einv_sa_seg_confirmation_datetime', store=True)
     ### new Delivery Note No
     einv_delivery_note_no = fields.Char(string="Delivery Note No.", help="", copy=False)
+    einv_pur_order_no = fields.Char(string="Purchase Order No.", help="", copy=False)
+    
     arabic_text_amount = fields.Char(string="Total In Words", required=False, compute="_compute_amount_to_words" )
 
     @api.depends('amount_total')

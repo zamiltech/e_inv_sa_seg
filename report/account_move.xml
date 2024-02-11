@@ -44,9 +44,9 @@
                         <div class="col-4 text-right"><Strong>البائع</Strong></div>
                     </div> 
                     <div class="row">
-                        <div class="col-4"><Strong>Delivery Note</Strong></div>
-                        <div class="col-4 text-center"><span t-field="doc.einv_delivery_note_no"></span></div>
-                        <div class="col-4 text-right"><Strong>رقم سند التسليم</Strong></div>
+                        <div class="col-4"><Strong>Purchase Order No.</Strong></div>
+                        <div class="col-4 text-center"><span t-field="doc.einv_pur_order_no"></span></div>
+                        <div class="col-4 text-right"><Strong>رقم امر الشراء</Strong></div>
                     </div>                                                            
                 </div>
                 <div class="col-3" >
