@@ -283,8 +283,8 @@
                             <div class="col-4">Total Amount in Words</div>
                             <div class="col-6 text-center">
                             <span t-esc="doc.currency_id.amount_to_text(doc.amount_total)"></span> 
-                            <br></br>
-                            <span t-esc="doc.arabic_text_amount"></span> 
+                            <!-- <br></br>
+                            <span t-esc="doc.arabic_text_amount"></span>  -->
                             
                             <!-- <br></br>
                             <span class="rtl" t-esc="doc.currency_id.with_context(lang='ar_SY').amount_to_text(doc.amount_total)"> </span> -->

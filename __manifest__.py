@@ -24,6 +24,7 @@
     ,
     "data": [
         "view/partner.xml",
+        "view/company.xml",
         "report/base_document_layout.xml",
         "report/account_move.xml",
         "view/account_move_views.xml"
